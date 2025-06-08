@@ -1,0 +1,16 @@
+<suite name="scenario1" thread-count="5" parallel="tests">
+<listeners>
+<listener class-name="com.sevenmartsupermarket.listeners.ExtentReporter"></listener>
+			
+</listeners>
+<test name="case1">
+<classes>
+<class name="com.sevenmartsupermarket.tests.LoginTest"></class>
+</classes>
+</test>
+<test name="case2">
+<classes>
+<class name="com.sevenmartsupermarket.tests.LoginTest"></class>
+</classes>
+</test>
+</suite>

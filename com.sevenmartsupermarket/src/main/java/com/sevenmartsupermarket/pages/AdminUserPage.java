@@ -65,7 +65,6 @@ public class AdminUserPage {
 		return generalutility.get_CssValue(newUserButton, "background-color");
 	
 	}
-
 	
 	
 	

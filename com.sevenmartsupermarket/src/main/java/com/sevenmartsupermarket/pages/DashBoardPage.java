@@ -10,7 +10,7 @@ public class DashBoardPage {
 	@FindBy(xpath = "//a[@class='d-block']")
 	private WebElement profileNameElement;
 	@FindBy(xpath = "(//p[contains(text(),'Admin Users')])[2]")
-	private WebElement profileNameElement;
+	private WebElement alertCheck;
 
 	public DashBoardPage(WebDriver driver) {
 		this.driver = driver;

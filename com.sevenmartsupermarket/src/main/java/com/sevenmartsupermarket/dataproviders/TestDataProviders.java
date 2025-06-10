@@ -7,18 +7,19 @@ import com.sevenmartsupermarket.utilities.ExcelReader;
 public class TestDataProviders {
 	
 	@DataProvider(name = "admin data")
-    public Object[][] getData() {
+    public Object[][] getDatas() {
         return new Object[][] {  {"sree90@gmail","drett"},  {"mohan89@gmail","fggrrt"},  {"raju45@gmail","fhyy"}, };
           
-	}     
+	    
           
 	}
+}
 
 
-ExcelReader excel=new ExcelReader();
+/*ExcelReader excel=new ExcelReader();
 @DataProvider(name = "admins data")
 public Object[][] getData() {
-	return new Object[][];
+	return new Object[][]
     	excel.setExcelFile(adminpage);
     	return excel.getMultidimentionalData(2, 3);
-}
+}*/

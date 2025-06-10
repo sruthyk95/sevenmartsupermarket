@@ -15,15 +15,15 @@ public class LoginPage {
 	WebDriver driver;
 	Properties properties = new Properties();
 
-	@FindBy(xpath="//input[@name='username']\r\n")
-	 private WebElement userNameField;
-	@FindBy(xpath="//input[@name='password']")
+	@FindBy(xpath = "//input[@name='username']\r\n")
+	private WebElement userNameField;
+	@FindBy(xpath = "//input[@name='password']")
 	private WebElement passWordField;
-	@FindBy(xpath="//button[contains(text(),'Sign In')]")
+	@FindBy(xpath = "//button[contains(text(),'Sign In')]")
 	private WebElement signInButton;
-	public LoginPage(WebDriver driver)
-	{
-		this.driver=driver;
+
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		try {
 			FileInputStream fi = new FileInputStream(Constants.CONFIG_FILEPATH);
@@ -31,40 +31,39 @@ public class LoginPage {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}//class used to initialize elements
-		
+		} // class used to initialize elements
+
 	}
-	public void enterUserName(String userName)
-	{
-		 userNameField.sendKeys(userName);	
+
+	public LoginPage enterUserName(String userName) {
+		userNameField.sendKeys(userName);
+		return this;
 	}
-	
-	public void enterPasswordField(String passWord)
-	{
-		passWordField.sendKeys(passWord);	
+
+	public LoginPage enterPasswordField(String passWord) {
+		passWordField.sendKeys(passWord);
+		return this;
 	}
-	
-	public void clickOnSignIn()
-	{
-		WaitUtility waitutility=new WaitUtility(driver);
-		waitutility.elementToBeClickable(signInButton,60);
-		
-		signInButton.click();	 	
+
+	public LoginPage clickOnSignIn() {
+		WaitUtility waitutility = new WaitUtility(driver);
+		waitutility.elementToBeClickable(signInButton, 60);
+
+		signInButton.click();
+		return this;
 	}
-	/*public void login(String userName,String passWord)
-	{
-		enterUserName(userName);
-		enterPasswordField(passWord);
-		clickOnSignIn();
-		
-	}*/
+
+	/*
+	 * public void login(String userName,String passWord) { enterUserName(userName);
+	 * enterPasswordField(passWord); clickOnSignIn();
+	 * 
+	 * }
+	 */
 	public void login()//read from config
 	{
 		String userName=properties.getProperty("username");
 		String passWord=properties.getProperty("password");
-		enterUserName(userName);
-		enterPasswordField(passWord);
-		clickOnSignIn();
+		enterUserName(userName).enterPasswordField(passWord).clickOnSignIn();
 		
 		
 	}
